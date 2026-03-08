@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Eshi — Women's Day 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Full-screen Background Video -->
+  <video class="bg-video" autoplay loop muted playsinline>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Ambient canvases -->
+  <canvas id="petal-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div id="cursorTrailContainer"></div>
+
+  <!-- Music toggle -->
+  <div class="music-container">
+    <div class="song-title" id="songTitle">K.</div>
+    <button class="music-btn" id="musicBtn" title="Toggle ambient music">♪</button>
+  </div>
+
+  <!-- Custom Audio Player (Add your song.mp3 in the folder) -->
+  <audio id="bgMusic" loop src="song_1.ogg"></audio>
+
+  <!-- Progress dots -->
+  <nav class="progress-nav" id="progressNav" aria-label="Scene progress"></nav>
+
+
+  <!-- Back button -->
+  <button class="nav-back" id="backBtn" title="Go back" aria-label="Previous scene">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 0 — THE GIFT
+  ══════════════════════════════════════════════ -->
+  <section class="scene active" id="scene-0" data-index="0">
+    <div class="scene-inner center-column">
+
+      <div class="gift-wrapper" id="giftWrapper">
+        <div class="gift-box-3d" id="giftBox3d">
+          <div class="gift-lid" id="giftLid">
+            <div class="gift-bow">🎀</div>
+            <div class="gift-rib-h"></div>
+            <div class="gift-rib-v"></div>
+          </div>
+          <div class="gift-base">
+            <div class="gift-rib-h base"></div>
+            <div class="gift-rib-v base"></div>
+            <div class="gift-shine"></div>
+          </div>
+        </div>
+        <div class="gift-burst" id="giftBurst" aria-hidden="true">
+          <span style="--a:0deg">🌸</span>
+          <span style="--a:45deg">✨</span>
+          <span style="--a:90deg">🌺</span>
+          <span style="--a:135deg">💫</span>
+          <span style="--a:180deg">🌼</span>
+          <span style="--a:225deg">⭐</span>
+          <span style="--a:270deg">🌷</span>
+          <span style="--a:315deg">❀</span>
+        </div>
+      </div>
+
+      <p class="gift-headline stagger-1">Something was made just for you...</p>
+      <p class="gift-sub stagger-2">A little surprise &nbsp;·&nbsp; A little celebration &nbsp;·&nbsp; A special day</p>
+
+      <button class="cta-btn stagger-3" id="openGiftBtn">
+        <span>Unwrap</span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 1 — WOMEN'S DAY REVEAL
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-1" data-index="1">
+    <div class="scene-inner center-column">
+
+      <div class="queen-section stagger-1">
+        <h2 class="queen-heading animate-letter">Happy Women’s Day, Eshi ✨</h2>
+
+        <div class="profile-photo-container">
+          <div class="crown-icon">👑</div>
+          <div class="profile-photo-wrapper">
+            <img src="2.jpeg" alt="Eshi" class="profile-photo">
+          </div>
+          <div class="queen-badge-container">
+            <span class="queen-badge">You’re a Queen 👑</span>
+          </div>
+        </div>
+
+        <p class="special-line stagger-2">
+          I made something special for you. Tap the button below to start the surprise.
+        </p>
+
+        <button class="cta-btn gradient stagger-3" onclick="nextScene()">
+          <span>Begin Her Story ✨</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 2 — WHO SHE IS
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-2" data-index="2">
+    <div class="scene-inner center-column wide">
+
+      <div class="scene-tag stagger-1">Who She Is</div>
+      <h2 class="scene-title stagger-2">She is <em>many things</em> at once.</h2>
+      <p class="scene-body stagger-3">
+        There are people you meet who simply carry something rare — an invisible kind of gravity.
+        Eshi is that kind of person. Everything she does, she does with intention and grace.
+      </p>
+
+      <div class="qualities-grid stagger-4">
+        <div class="q-card">
+          <span class="q-icon">🌿</span>
+          <div class="q-title">Strength Without Noise</div>
+          <div class="q-desc animate-letter">She does not announce her battles. She simply wins them — with dignity.
+          </div>
+        </div>
+        <div class="q-card">
+          <span class="q-icon">🌸</span>
+          <div class="q-title">Care Without Show</div>
+          <div class="q-desc animate-letter">Her warmth is not performative. It is present, steady, and real.</div>
+        </div>
+        <div class="q-card">
+          <span class="q-icon">✨</span>
+          <div class="q-title">Discipline With Dreams</div>
+          <div class="q-desc animate-letter">She holds her ambitions close and works toward them without losing herself.
+          </div>
+        </div>
+        <div class="q-card">
+          <span class="q-icon">🌙</span>
+          <div class="q-title">Softness With Courage</div>
+          <div class="q-desc animate-letter">Gentleness and resilience — she has mastered living in both at once.</div>
+        </div>
+        <div class="q-card">
+          <span class="q-icon">👑</span>
+          <div class="q-title">Grace With Power</div>
+          <div class="q-desc animate-letter">There is an authority in how she carries herself — unhurried, unshaken.
+          </div>
+        </div>
+      </div>
+
+      <button class="cta-btn stagger-5" onclick="nextScene()">
+        <span>There is more</span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 3 — THE ELDEST DAUGHTER
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-3" data-index="3">
+    <div class="scene-inner two-col">
+
+      <!-- Left: Quote circle -->
+      <div class="eldest-visual stagger-1">
+        <div class="ring-deco r1"></div>
+        <div class="ring-deco r2"></div>
+        <div class="eldest-circle">
+          "The eldest daughter learns early that love sometimes looks like responsibility."
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="eldest-text">
+        <div class="scene-tag stagger-2">The Eldest Daughter</div>
+        <h2 class="scene-title stagger-3">She carries more than<br>anyone <em>ever sees.</em></h2>
+        <div class="gold-divider stagger-4"></div>
+        <p class="scene-body stagger-5">
+          To be the eldest daughter is to inherit a particular kind of maturity — one that arrives
+          before you ask for it. It is a quiet apprenticeship in responsibility, in holding things
+          together without being asked twice.
+        </p>
+        <ul class="statement-list stagger-6">
+          <li class="animate-letter">She learned to balance her own needs with those of the people she loves — and
+            rarely
+            complains about the
+            weight.</li>
+          <li class="animate-letter" style="animation-delay: 0.2s">There is an emotional intelligence in how she shows
+            up
+            at home — thoughtful, present, already attuned.
+          </li>
+          <li class="animate-letter" style="animation-delay: 0.4s">She does not need to be told what needs to be done.
+            She
+            simply sees it — and does it.</li>
+          <li class="animate-letter" style="animation-delay: 0.6s">That kind of maturity is not common. In her, it is
+            natural.</li>
+        </ul>
+        <button class="cta-btn stagger-7" onclick="nextScene()">
+          <span>Her brilliant mind</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 4 — HER MIND
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-4" data-index="4">
+    <div class="scene-inner center-column">
+
+      <div class="scene-tag stagger-1">Her Mind</div>
+      <h2 class="scene-title stagger-2">Sharp. Focused. <em>Unstoppable.</em></h2>
+      <div class="gold-divider stagger-3"></div>
+      <p class="scene-body stagger-4">
+        Intelligence is not simply about how much one knows —
+        it is about how seriously one takes the pursuit of knowing.
+        Eshi approaches her studies with that rare blend of discipline and genuine curiosity.
+        She is not just a student. She is someone building a future, one page at a time.
+      </p>
+
+      <div class="pills-row stagger-5">
+        <span class="study-pill">Deep Focus</span>
+        <span class="study-pill">Academic Rigour</span>
+        <span class="study-pill">Quiet Ambition</span>
+        <span class="study-pill">Consistent Effort</span>
+        <span class="study-pill">Intellectual Courage</span>
+      </div>
+
+      <blockquote class="studies-quote animate-letter stagger-6">
+        She does not chase brilliance —<br>
+        she builds it, slowly and surely,<br>
+        through the work that no one sees.
+      </blockquote>
+
+      <button class="cta-btn stagger-7" onclick="nextScene()">
+        <span>Her future</span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 5 — HER FUTURE (DOCTOR)
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-5" data-index="5">
+    <div class="scene-inner two-col reverse">
+
+      <!-- Left: Content -->
+      <div class="doctor-text">
+        <div class="scene-tag stagger-1">Her Future</div>
+        <h2 class="scene-title animate-letter stagger-2">When I picture her tomorrow,<br>I see a <em>healer.</em></h2>
+        <div class="gold-divider stagger-3"></div>
+        <p class="scene-body animate-letter stagger-4">
+          It is not simply her dream that makes me believe this.
+          It is everything about how she already moves through the world —
+          with attention, with care, with the kind of calm that others lean into.
+          A doctor does not only cure. A doctor sees the person behind the pain.
+          And Eshi already knows how to do that.
+        </p>
+        <p class="scene-body animate-letter stagger-5">
+          The white coat will not change who she is.
+          It will simply make visible what has always been there —
+          a deep, unhurried, extraordinary dedication to the wellbeing of others.
+        </p>
+        <button class="cta-btn stagger-8" onclick="nextScene()">
+          <span>How she inspires</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Right: Pillars + glow quote -->
+      <div class="doctor-right stagger-6">
+        <div class="doctor-pillars">
+          <div class="pillar">
+            <span class="p-icon">🩺</span>
+            <div class="p-label">Discipline</div>
+            <div class="p-sub">Medicine demands it. She already lives it.</div>
+          </div>
+          <div class="pillar">
+            <span class="p-icon">🫀</span>
+            <div class="p-label">Compassion</div>
+            <div class="p-sub">The rarest quality a doctor can have.</div>
+          </div>
+          <div class="pillar">
+            <span class="p-icon">🔬</span>
+            <div class="p-label">Curiosity</div>
+            <div class="p-sub">She asks the right questions, always.</div>
+          </div>
+          <div class="pillar">
+            <span class="p-icon">⚡</span>
+            <div class="p-label">Resilience</div>
+            <div class="p-sub">She does not break. She builds instead.</div>
+          </div>
+        </div>
+        <div class="doctor-glow animate-letter stagger-7">
+          "Dr. Eshi — it is not a title she will earn.<br>It is one the world will simply recognise in her."
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 6 — SHE INSPIRES
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-6" data-index="6">
+    <div class="scene-inner two-col">
+
+      <!-- Left: Header + intro -->
+      <div class="inspo-intro">
+        <div class="scene-tag stagger-1">Her Presence</div>
+        <h2 class="scene-title stagger-2">She inspires<br><em>without trying to.</em></h2>
+        <div class="gold-divider stagger-3"></div>
+        <p class="scene-body stagger-4">
+          The most powerful kind of inspiration is the kind that asks nothing of you —
+          it simply exists, and quietly changes what you believe is possible.
+          Eshi is that. She shows other girls a way of being
+          that is both strong and soft, both grounded and ambitious.
+        </p>
+        <button class="cta-btn stagger-8" onclick="nextScene()">
+          <span>Words of pride</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Right: Inspo blocks -->
+      <div class="inspo-grid stagger-5">
+        <div class="inspo-card animate-letter" style="animation-delay: 0.1s">
+          <h4>She shows it is possible</h4>
+          <p>To handle everything at home and still show up fully for your own future. To carry others without losing
+            yourself.</p>
+        </div>
+        <div class="inspo-card animate-letter" style="animation-delay: 0.3s">
+          <h4>She shows what dignity looks like</h4>
+          <p>There is a way she holds herself — quietly confident, never loud about it. It is the kind of poise that
+            teaches without speaking.</p>
+        </div>
+        <div class="inspo-card animate-letter" style="animation-delay: 0.5s">
+          <h4>She shows what balance looks like</h4>
+          <p>Studies. Home. Growth. Self. She does not sacrifice one for another. She learns, slowly and beautifully, to
+            hold them all.</p>
+        </div>
+        <div class="inspo-card animate-letter" style="animation-delay: 0.7s">
+          <h4>She shows what a dream looks like in practice</h4>
+          <p>Not as a distant wish — but as something you work toward every single day, in quiet and in full.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 7 — PRIDE
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-7" data-index="7">
+    <div class="scene-inner center-column wide">
+
+      <div class="scene-tag stagger-1" style="text-align:center">A Moment of Pride</div>
+
+      <p class="pride-statement animate-letter stagger-2">
+        The people who love her must look at her and feel something
+        that words do not quite reach —
+        <em>the quiet, overwhelming pride</em>
+        of watching someone become who they were always meant to be.
+      </p>
+
+      <div class="pride-cards stagger-3">
+        <div class="pride-card">
+          <div class="pride-from">Her Family</div>
+          <div class="pride-msg animate-letter">
+            "We raised her, and yet she teaches us every day what it means to be truly devoted to a life well-lived."
+          </div>
+        </div>
+        <div class="pride-card featured">
+          <div class="pride-from">From Me</div>
+          <div class="pride-msg animate-letter">
+            "I am not just proud of what you do, Eshi. I am proud of who you are — of the grace you carry and the future
+            you are building."
+          </div>
+        </div>
+        <div class="pride-card">
+          <div class="pride-from">The World</div>
+          <div class="pride-msg animate-letter">
+            "In a world that often asks girls to be less — she quietly chose to be more. And she did it beautifully."
+          </div>
+        </div>
+      </div>
+
+      <button class="cta-btn stagger-4" onclick="nextScene()">
+        <span>The final message</span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 8 — CLOSING LETTER
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-8" data-index="8">
+    <div class="scene-inner center-column">
+
+      <div class="closing-tag stagger-1">To Eshi, On Women's Day</div>
+
+      <h2 class="closing-headline animate-letter stagger-2">
+        You are not waiting to become something.
+        You are already <em>everything</em>
+        you were meant to be — just arriving.
+      </h2>
+
+      <div class="gold-divider stagger-3"></div>
+
+      <p class="closing-poem animate-letter stagger-4">
+        Not all stories announce themselves.<br>
+        Some unfold slowly, beautifully —<br>
+        in the choices made in quiet rooms,<br>
+        in the responsibilities held with grace,<br>
+        in the dreams pursued with steady hands.<br>
+        Yours is one of those stories.<br>
+        And it is just beginning.
+      </p>
+
+      <button class="cta-btn gold stagger-5" onclick="nextScene()">
+        <span>One last thing</span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCENE 9 — FINAL CELEBRATION
+  ══════════════════════════════════════════════ -->
+  <section class="scene" id="scene-9" data-index="9">
+    <div class="scene-inner center-column">
+
+      <div class="final-blooms stagger-1" aria-hidden="true">🌸 🌺 🌼 💐 🌷</div>
+      <div class="final-womens-day stagger-2">Happy Women's Day</div>
+      <h1 class="final-name stagger-3">Eshi</h1>
+      <p class="final-heart stagger-4">🌸</p>
+      <p class="final-credit stagger-5">
+        Made with admiration, on <em>Women's Day 2026</em><br>For <em>Eshi</em>
+      </p>
+
+      <button class="cta-btn ghost stagger-6" onclick="restartJourney()">
+        <span>Revisit the journey 🌸</span>
+      </button>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
