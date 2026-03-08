@@ -456,9 +456,10 @@ musicBtn.addEventListener('click', () => {
   playing = !playing;
 
   // Check if there is an actual audio source loaded
-  const hasAudioSource = bgMusic && bgMusic.getAttribute('src') && bgMusic.getAttribute('src') !== '';
+  const source = bgMusic && bgMusic.querySelector('source');
+  const hasAudioSource = source && source.getAttribute('src');
 
-  if (hasAudioSource && (bgMusic.src.includes('.mp3') || bgMusic.src.includes('.ogg'))) {
+  if (hasAudioSource) {
     // Play custom song
     if (playing) {
       bgMusic.play().catch(() => console.log('Audio play failed, maybe no file found'));
